@@ -22,4 +22,15 @@ def open_file():
         set_file_path(path)
 
 
+def save_as():
+    if file_path == '':
+        path = asksaveasfilename(filetypes=[('Python Files', '*.py')])
+    else:
+        path = file_path
+    with open(path, 'w') as file:
+        code = editor.get('1.0', END)
+        file.write(code)
+        set_file_path(path)
+
+
 
